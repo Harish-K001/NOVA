@@ -1,0 +1,9 @@
+{
+    "vscode" : "code",
+    "notepad": "notepad",
+    "chrome" : "chrome",
+    "calculator" : "calc",
+    "paint" : "mspaint",
+    "command prompt" : "cmd",
+    "file explorer" : "explorer"
+}
