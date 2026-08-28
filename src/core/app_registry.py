@@ -8,4 +8,6 @@ class Appregistry :
         
     def get_command(self,app):
         return self.apps.get(app)
+    def get_apps(self):
+        return self.apps.keys()
     

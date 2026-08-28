@@ -14,6 +14,11 @@ class Brain:
                 "target" : target,
                 "alias"  : alias
             }
+        elif len(words) >=2 and words[0] in ["which","what"] and words[1] == "apps" :
+            return{
+                "intent" : "LIST_APPS",
+            }
+        
         elif len(words) == 2 and words[0] == "open":  
             target = words[1]
             return{

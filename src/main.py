@@ -37,17 +37,26 @@ def main():
         elif action["intent"] == "OPEN_APP":
             target = action["target"]
             real_target = memory.get_alias(target)
-            if real_target is not None:
 
-                launch_command = registry.get_command(real_target)
-                print(f"Real Target: {real_target}")
-                print(f"Launch Command: {launch_command}")
-                automation.open_app(launch_command)
-
-            else :
+            if real_target is  None:
                 real_target = target
-                automation.open_app(real_target)
 
+            launch_command = registry.get_command(real_target)
+            print(f"Real Target: {real_target}")
+            print(f"Launch Command: {launch_command}")
+
+            if launch_command is not None:
+                    automation.open_app(launch_command)
+                
+            else:
+                    print("I dont know the given application!")
+                
+
+            
+        elif action["intent"] == "LIST_APPS" :
+            apps = registry.get_apps()
+            for app in apps:
+                 print(app)
         elif action["intent"] == "EXIT":
             print("NOVA: Goodbye!")
             break
