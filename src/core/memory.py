@@ -20,5 +20,11 @@ class Memory:
     def get_alias(self,alias):
         #get in dictionary prevents KeyError , if key doesnt exist.
         return self.aliases.get(alias)
+
+    def memorize(self,key,value):
+        self.temporary[key] = value
     
-    
+    def retrieve(self,key):
+        return self.temporary.get(key)
+
+

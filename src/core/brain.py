@@ -14,6 +14,22 @@ class Brain:
                 "target" : target,
                 "alias"  : alias
             }
+        elif words[0] == "remember" and "is" in words :
+            before,_,after = message.partition("is")
+            key = before[len("remember "):].strip()
+            value = after.strip()
+            return{
+                "intent" : "MEMORIZE",
+                "key" : key,
+                "value"  : value
+            }
+        elif words[0] == "what" and "is" in words:
+            before,_,after = message.partition("is")
+            key = after.strip()
+            return{
+                "intent" : "RETRIEVE",
+                "key" : key
+            }
         elif len(words) >=2 and words[0] in ["which","what"] and words[1] == "apps" :
             return{
                 "intent" : "LIST_APPS",

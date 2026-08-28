@@ -57,6 +57,12 @@ def main():
             apps = registry.get_apps()
             for app in apps:
                  print(app)
+        elif action["intent"] == "MEMORIZE" : 
+            memory.memorize(action["key"],action["value"])
+            print("NOVA : Yeah I'll remember that.")
+        elif action["intent"] == "RETRIEVE" : 
+            context = memory.retrieve(action["key"])
+            print(context)
         elif action["intent"] == "EXIT":
             print("NOVA: Goodbye!")
             break
